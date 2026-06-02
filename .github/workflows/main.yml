@@ -1,25 +1,14 @@
-name: Outputs Practice
+name: Environment Variables Practice
 
 on: push
 
+env:
+  APP_NAME: gha-artifacts-lab
+
 jobs:
-  generate-version:
+  show-variable:
     runs-on: ubuntu-latest
 
-    outputs:
-      app_version: ${{ steps.version_step.outputs.version }}
-
     steps:
-      - name: Generate Version
-        id: version_step
-        run: echo "version=1.0" >> $GITHUB_OUTPUT
-
-  display-version:
-    needs: generate-version
-
-    runs-on: ubuntu-latest 
-    steps:
-        - name: Show Version
-          run: |
-           echo "Application Version:"
-           echo "${{ needs.generate-version.outputs.app_version }}"
+      - name: Print App Name
+        run: echo $APP_NAME
