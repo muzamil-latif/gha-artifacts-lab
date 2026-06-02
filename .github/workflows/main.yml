@@ -9,6 +9,12 @@ jobs:
   show-variable:
     runs-on: ubuntu-latest
 
+    env:
+      ENVIRONMENT: Development
+
     steps:
       - name: Print App Name
         run: echo $APP_NAME
+
+      - name: Print Environment
+        run: echo $ENVIRONMENT
