@@ -1,0 +1,13 @@
+name: Artifacts Practice
+on: push
+jobs: 
+    create-report:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Get repo code
+              uses: actions/checkout@v4
+
+            - name: show report file
+              run: cat report.txt
+              
