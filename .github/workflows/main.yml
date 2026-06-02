@@ -18,3 +18,6 @@ jobs:
 
       - name: Print Environment
         run: echo $ENVIRONMENT
+
+      - name: Print Secret
+        run: echo ${{ secrets.MY_NAME }}
