@@ -17,8 +17,9 @@ jobs:
   display-version:
     needs: generate-version
 
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-latest 
     steps:
-      - name: Show Version
-        run: echo "Application Version: ${{ needs.generate-version.outputs.app_version }}"
+        - name: Show Version
+          run: |
+           echo "Application Version:"
+           echo "${{ needs.generate-version.outputs.app_version }}"
