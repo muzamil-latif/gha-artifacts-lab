@@ -13,11 +13,10 @@ jobs:
       ENVIRONMENT: Development
 
     steps:
-      - name: Print App Name
-        run: echo $APP_NAME
+        
+           - name: Always Run
+             run: echo "This step always runs"
 
-      - name: Print Environment
-        run: echo $ENVIRONMENT
-
-      - name: Print Secret
-        run: echo ${{ secrets.MY_NAME }}
+           - name: Run Only On Main
+             if: github.ref == 'refs/heads/main'
+             run: echo "Running on main branch"
