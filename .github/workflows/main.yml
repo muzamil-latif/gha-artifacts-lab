@@ -1,17 +1,17 @@
-name: Matrix Practice
+name: Container Practice
 
 on: push
 
 jobs:
-  test-os:
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-          - windows-latest
+  container-job:
+    runs-on: ubuntu-latest
 
-    runs-on: ${{ matrix.os }}
+    container:
+      image: node:20
 
     steps:
-      - name: Show Operating System
-        run: echo "Running on ${{ matrix.os }}"
+      - name: Check Node Version
+        run: node --version
+
+      - name: Check NPM Version
+        run: npm --version
