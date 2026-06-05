@@ -14,9 +14,9 @@ jobs:
 
     steps:
         
-           - name: Always Run
-             run: echo "This step always runs"
+           - name: Intentional Failure
+             continue-on-error: true
+             run: exit 1
 
-           - name: Run Only On Main
-             if: github.ref == 'refs/heads/main'
-             run: echo "Running on main branch"
+           - name: Step After Failure
+             run: echo "Workflow continued"
