@@ -1,22 +1,17 @@
-name: Environment Variables Practice
+name: Matrix Practice
 
 on: push
 
-env:
-  APP_NAME: gha-artifacts-lab
-
 jobs:
-  show-variable:
-    runs-on: ubuntu-latest
+  test-os:
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
 
-    env:
-      ENVIRONMENT: Development
+    runs-on: ${{ matrix.os }}
 
     steps:
-        
-           - name: Intentional Failure
-             continue-on-error: true
-             run: exit 1
-
-           - name: Step After Failure
-             run: echo "Workflow continued"
+      - name: Show Operating System
+        run: echo "Running on ${{ matrix.os }}"
